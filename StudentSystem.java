@@ -27,9 +27,9 @@ public class StudentSystem {
 
     public StudentSystem(String Name, int[] Scores, double AverageScore){
 
-        name = Name;
-        scores = Scores;
-        averageScore = AverageScore;
+        this.name = Name;
+        this.scores = Scores;
+        this.averageScore = AverageScore;
     }
 
 public void calculateAverage(){
