@@ -8,7 +8,7 @@ public class MainStudentSystem {
        StudentSystem student = new StudentSystem(null,0,0,0);
         Scanner scanner = new Scanner(System.in);
 
-        for(int i=0;i<5;i++) {
+        for(int i=0;i<2;i++) {
 
             System.out.print("Name: ");
             String name = scanner.next();
@@ -20,7 +20,9 @@ public class MainStudentSystem {
             int science = scanner.nextInt();
 
              student = new StudentSystem(name,math,english,science);
-            System.out.println(student.getName() + " " + student.calculateAverage());
+
+            System.out.println(student.getName());
+            System.out.println("Average Score: " + student.calculateAverage());
             student.assignGrade();
 
         }
