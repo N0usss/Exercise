@@ -1,12 +1,34 @@
 import java.util.*;
+import java.util.Scanner;
 
 public class MainStudentSystem {
 
     public static void main(String[] args) {
 
-        StudentSystem studentsystem = new StudentSystem(null, null, 0);
+       StudentSystem student = new StudentSystem(null,0,0,0);
+        Scanner scanner = new Scanner(System.in);
 
-        int[][] scores = {
+        for(int i=0;i<5;i++) {
+
+            System.out.print("Name: ");
+            String name = scanner.next();
+            System.out.print("Math: ");
+            int math = scanner.nextInt();
+            System.out.print("English: ");
+            int english = scanner.nextInt();
+            System.out.print("Science: ");
+            int science = scanner.nextInt();
+
+
+            StudentSystem students = new StudentSystem(name,math,english,science);
+            System.out.println(students.getName() + " " + students.calculateAverage());
+            students.assignGrade();
+        }
+
+
+
+
+        /****int[][] scores = {
                 {90,94,99},
                 {66,80,90},
                 {79,54,66},
@@ -38,14 +60,14 @@ public class MainStudentSystem {
                 }
 
                 System.out.println(subject + " " + s[col]);
-            }***/
+            }
 
             System.out.print("Average Score: ");
             studentsystem.calculateAverage();
             System.out.print("Grade: ");
             studentsystem.assignGrade();
             System.out.println("--------------------------------------------------------");
-        }
+        }***/
 
 
     }

@@ -1,7 +1,7 @@
 public class StudentSystem {
 
     private String name;
-    private int scores[];
+    private int scores[] = new int[3];
     private double averageScore;
 
     public String getName() {
@@ -25,14 +25,16 @@ public class StudentSystem {
     }
 
 
-    public StudentSystem(String Name, int[] Scores, double AverageScore){
+    public StudentSystem(String Name, int Math, int English, int Science){
 
         this.name = Name;
-        this.scores = Scores;
-        this.averageScore = AverageScore;
+        this.scores[0] = Math;
+        this.scores[1] = English;
+        this.scores[2] = Science;
+        this.averageScore = calculateAverage();
     }
 
-public void calculateAverage(){
+public double calculateAverage(){
 
         double avgScores = 0;
         for(int i=0; i<scores.length;i++){
@@ -42,8 +44,8 @@ public void calculateAverage(){
         }
 
         averageScore = avgScores / 3;
-    System.out.println(averageScore);
 
+    return(averageScore);
 }
 
 public void assignGrade(){
