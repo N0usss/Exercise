@@ -8,7 +8,7 @@ public class MainStudentSystem {
        StudentSystem student = new StudentSystem(null,0,0,0);
         Scanner scanner = new Scanner(System.in);
 
-        for(int i=0;i<2;i++) {
+        for(int i=0;i<5;i++) {
 
             System.out.print("Name: ");
             String name = scanner.next();
