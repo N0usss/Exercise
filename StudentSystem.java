@@ -72,7 +72,7 @@ public void assignGrade(){
             grade = "F";
         }
         
-        System.out.println(grade);
+        System.out.println("Grade: " + grade);
 }
 
 }

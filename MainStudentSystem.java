@@ -5,10 +5,11 @@ public class MainStudentSystem {
 
     public static void main(String[] args) {
 
-       StudentSystem student = new StudentSystem(null,0,0,0);
+       StudentSystem student[] = new StudentSystem[5];
         Scanner scanner = new Scanner(System.in);
 
-        for(int i=0;i<5;i++) {
+
+        for(int i=0;i<2;i++) {
 
             System.out.print("Name: ");
             String name = scanner.next();
@@ -19,12 +20,15 @@ public class MainStudentSystem {
             System.out.print("Science: ");
             int science = scanner.nextInt();
 
-             student = new StudentSystem(name,math,english,science);
+             student[i] = new StudentSystem(name,math,english,science);
 
-            System.out.println(student.getName());
-            System.out.println("Average Score: " + student.calculateAverage());
-            student.assignGrade();
+        }
 
+        for(int j=0;j<2;j++){
+
+            System.out.println("Name: " + student[j].getName());
+            System.out.println("Average Score: " + student[j].getAverageScore());
+            student[j].assignGrade();
         }
 
 
