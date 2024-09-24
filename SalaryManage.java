@@ -7,7 +7,8 @@ public class SalaryManage {
     private double bonus;
     private double totalSalary;
 
-    //-----------------------------------------------------------------------
+    //Get-----------------------------------------------------------------------
+
     public String getName() {
         return name;
     }
@@ -31,7 +32,7 @@ public class SalaryManage {
         return totalSalary;
     }
 
-    //------------------------------------------------------------------------------
+    //Set------------------------------------------------------------------------------
 
     public void setName(String name) {
         this.name = name;
@@ -56,7 +57,7 @@ public class SalaryManage {
         this.totalSalary = totalSalary;
     }
 
-    //------------------------------------------------------------------------------
+    //Construct------------------------------------------------------------------------------
 
     public SalaryManage(String Name, double BaseSalary){
 
@@ -68,15 +69,11 @@ public class SalaryManage {
 
     }
 
-    //------------------------------------------------------------------------------
+    //Method------------------------------------------------------------------------------
 
     public double calculateTotalSalary(){
 
-        double total = 0;
-
-        total = baseSalary + healthAllowance + transportAllowance + assignBonus();
-
-        totalSalary = total;
+        totalSalary = baseSalary + healthAllowance + transportAllowance + assignBonus();
 
         return(totalSalary);
     }

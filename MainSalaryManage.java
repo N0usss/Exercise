@@ -20,9 +20,11 @@ public class MainSalaryManage {
             double allowance = salary[i].getHealthAllowance() + salary[i].getTransportAllowance();
 
 
+            System.out.println("Employee " + i);
             System.out.println("Name: " + salary[i].getName());
             System.out.println("Base Salary: " + salary[i].getBaseSalary());
             System.out.println("Allowance: " + allowance);
+            System.out.println("Bonus: " + salary[i].assignBonus());
             System.out.println("Total Salary: " + salary[i].calculateTotalSalary());
             System.out.println("----------------------------------------------------------------------");
         }
