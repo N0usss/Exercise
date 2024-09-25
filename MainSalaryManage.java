@@ -20,9 +20,11 @@ public class MainSalaryManage {
         LocalDate BeginAugust = LocalDate.of(2024,8,1);
         LocalDate EndAugust = LocalDate.of(2024,8,30);
 
+
         SalaryManage[] salary = new SalaryManage[5];
         ArrayList<String> employee = new ArrayList<>();
         ArrayList<Double> base = new ArrayList<>();
+        ArrayList<String> fav = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
 
         for(int i=0;i<5;i++){
@@ -40,10 +42,33 @@ public class MainSalaryManage {
 
         }
 
+        System.out.println("___________________________________________");
+        System.out.println("-- PAYSLIP GENERATED --");
+        System.out.println(BeginAugust + " until " + EndAugust);
+        System.out.println("___________________________________________");
+
         for(int j=0;j<employee.toArray().length;j++){
+
+
+
+            if(salary[j].getBaseSalary()>10000){
+
+               fav.add(salary[j].getName());
+
+            }
 
             salary[j].Display();
         }
+
+        System.out.println("Employee of the year: " );
+        for(String favo:fav){
+
+            System.out.println("- " + favo);
+
+        }
+
+
+
 
        //double[] base = {100000,46000,23000,30000,50000};
 

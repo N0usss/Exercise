@@ -2,7 +2,7 @@ import java.util.*;
 import java.sql.*;
 import  java.util.ArrayList;
 import java.util.function.Predicate;
-import java.time.LocalDate;
+
 
 
 public class SalaryManage {
@@ -13,8 +13,6 @@ public class SalaryManage {
     private double transportAllowance;
     private double bonus;
     private double totalSalary;
-    LocalDate BeginAugust = LocalDate.of(2024,8,1);
-    LocalDate EndAugust = LocalDate.of(2024,8,30);
 
     //Get-----------------------------------------------------------------------
 
@@ -115,7 +113,7 @@ public class SalaryManage {
         System.out.println("Allowance given: " + allowance);
         System.out.println("Bonus: " + assignBonus());
         System.out.println("Total Salary: " + calculateTotalSalary());
-        System.out.println(BeginAugust + " until " + EndAugust);
+
 
         Predicate<Double> isGreat = (salaries) -> salaries > 10000;
 
