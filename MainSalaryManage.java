@@ -58,6 +58,8 @@ public class MainSalaryManage {
             }
 
             salary[j].Display();
+            salary[j].Predication();
+            System.out.println("---------------------------------------------------------");
         }
 
         System.out.println("Employee of the year: " );

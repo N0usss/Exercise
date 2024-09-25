@@ -115,17 +115,22 @@ public class SalaryManage {
         System.out.println("Total Salary: " + calculateTotalSalary());
 
 
+    }
+
+    public void Predication(){
+
+
+
         Predicate<Double> isGreat = (salaries) -> salaries > 10000;
 
         if(isGreat.test(baseSalary)){
 
-            System.out.println("Happy Employee :)");
+            System.out.println(":)");
         }
         else {
-            System.out.println("Do Better :(");
+            System.out.println(":(");
         }
 
-        System.out.println("---------------------------------------------------------");
+    }
 
-    }
-    }
+}
