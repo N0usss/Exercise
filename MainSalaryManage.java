@@ -1,17 +1,55 @@
 import java.util.*;
 import java.sql.*;
+import  java.util.ArrayList;
+import java.util.function.Predicate;
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.Period;
+
 public class MainSalaryManage {
 
     public static void main(String[] args){
 
+        LocalDateTime nowDT = LocalDateTime.now();
+        LocalDate nowD = LocalDate.now();
+        LocalTime nowT = LocalTime.now();
+
+        LocalDate BeginAugust = LocalDate.of(2024,8,1);
+        LocalDate EndAugust = LocalDate.of(2024,8,30);
 
         SalaryManage[] salary = new SalaryManage[5];
+        ArrayList<String> employee = new ArrayList<>();
+        ArrayList<Double> base = new ArrayList<>();
+        Scanner scan = new Scanner(System.in);
 
-       double[] base = {100000,46000,23000,30000,50000};
+        for(int i=0;i<5;i++){
 
-        String[] employee = {"Abu","Ya","Skibidi","Rizzler","Sigma"};
+            System.out.print("insert employee: ");
+            employee.add(scan.next());
+            System.out.print("insert base Salary: ");
+            base.add(scan.nextDouble());
 
-        try {
+            salary[i] = new SalaryManage(employee.get(i),base.get(i));
+
+            salary[i].setTransportAllowance(500.00);
+            salary[i].setHealthAllowance(750.50);
+
+
+        }
+
+        for(int j=0;j<employee.toArray().length;j++){
+
+            salary[j].Display();
+        }
+
+       //double[] base = {100000,46000,23000,30000,50000};
+
+        //String[] employee = {"Abu","Ya","Skibidi","Rizzler","Sigma"};
+
+        /***try {
             for (int i = 0; i < employee.length; i++) {
 
                 salary[i] = new SalaryManage(employee[i], base[i]);
@@ -36,7 +74,7 @@ public class MainSalaryManage {
         }
         finally {
             System.out.println("welp continue i guess");
-        }
+        }***/
     }
 
 
