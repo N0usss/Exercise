@@ -67,7 +67,8 @@ public class User {
     public void printBorrowedBooks() {
 
         System.out.print("User: " + name );
-        System.out.println("Borrowed: " +String.join(", ", borrowedBooks) + ", ");
+        System.out.println("Borrowed: " + String.join(", ", borrowedBooks) + ", ");
+
         }
 
     public void checkDueDates(){

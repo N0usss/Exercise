@@ -48,12 +48,11 @@ public class Book {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
-
     }
 
     public void printBookInfo(){
 
-        System.out.println("Title: " + title + ", " + "Author: " + author +", " + "ISBN: " + isbn + ", " + "Available: " + isAvailable);
+        System.out.println("Title: " + title + ", " + "Author: " + author +", " + "ISBN: " + isbn + ", " + "Available: " + GetIsAvailable());
 
 
     }

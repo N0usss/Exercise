@@ -25,44 +25,21 @@ public class Library {
 
     public void borrowBook(User user, String title){
 
-
-            if(title.contains("Harry Potter")){
-
-                books.setAvailable(false);
-                user.borrowBook(title);
-                System.out.println("Done Borrow");
+        for (Book book : lib) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                if (book.GetIsAvailable()) {
+                    book.setAvailable(false);
+                    System.out.println("Book '" + title + "' borrowed successfully.");
+                }
+                else {
+                    user.returnBook(title);
+                    System.out.println("Sorry, the book '" + title + "' is not available.");
+                }
+                return;
             }
-            else if(title.contains("Maze Runner")){
-
-                books.setAvailable(false);
-                user.borrowBook(title);
-                System.out.println("Done Borrow");
-            }
-            else if(title.contains("Wimpy Kids")){
-
-                books.setAvailable(false);
-                user.borrowBook(title);
-                System.out.println("Done Borrow");
-            }
-            else if(title.contains("Hunger Games")){
-
-                books.setAvailable(false);
-                user.borrowBook(title);
-                System.out.println("Done Borrow");
-            }
-            else{
-                System.out.println("Sorry, that book is not available for now.");
-            }
-
         }
-
-
-    public void PrintLibrary(){
-
-
-        System.out.println(lib);
+        System.out.println("Sorry, the book '" + title + "' is not available in the library.");
     }
+
+
 }
-
-
-
