@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class MainLibrarySystem {
 
-    public static void main(String[] args){
+    public static void main(String... arg){
 
         Book[] books = new Book[10];
         User[] users = new User[2];
@@ -20,6 +20,8 @@ public class MainLibrarySystem {
             Lib.addBook(books[i]);  // Add books to the library's list
         }
 
+
+
         for (int s=0;s<2;s++){
 
             users[s] = new User();
@@ -28,28 +30,34 @@ public class MainLibrarySystem {
             users[s].setName(scan.next());
             System.out.print("Age: ");
             users[s].setAge(scan.nextInt());
-            System.out.print("Books to borrow: ");
-            String bookToBorrow = scan.next();
-
-            users[s].borrowBook(bookToBorrow);
-
-            Lib.borrowBook(users[s], bookToBorrow);
 
 
         }
-
-        scan.close();
-
-
-
-
-
 
        System.out.println("--Available books--");
         for(int a=0;a<titles.length;a++){
             books[a].printBookInfo();
 
         }
+
+        for(int b=0;b<2;b++){
+
+            System.out.print("Books to borrow by " + users[b].getName() + ":");
+            String bookToBorrow = scan.next();
+
+            users[b].borrowBook(bookToBorrow);
+
+            Lib.borrowBook(users[b], bookToBorrow);
+
+        }
+
+
+        System.out.println("--Available books after borrow--");
+        for(int a=0;a<titles.length;a++){
+            books[a].printBookInfo();
+
+        }
+
 
         System.out.println("--Books borrowed--");
 
