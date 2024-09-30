@@ -12,9 +12,13 @@ public class User {
     private String name;
     private int age;
     private ArrayList<String> borrowedBooks = new ArrayList<>();
+    private ArrayList<LocalDate> dates = new ArrayList<>();
     DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MMMM-yyyy ");
     LocalDate now = LocalDate.now();
-    String dateNow = format.format(now);
+  String dateNow = format.format(now);
+    LocalDate dueDate = LocalDate.now().plusDays(14);
+    String dateForDue = format.format(dueDate);
+    Period endBorrow = Period.between(now,dueDate);
 
     //GET--------------------------------------------------------------
 
@@ -53,14 +57,13 @@ public class User {
     public void borrowBook(String bookTitle){
 
         borrowedBooks.add(bookTitle);
-
+       // dates.add(now);
 
     }
 
     public void returnBook(String bookTitle){
 
         borrowedBooks.remove(bookTitle);
-
 
     }
 
@@ -71,18 +74,20 @@ public class User {
 
         }
 
-    public void checkDueDates(){
+    public void checkDueDates(Book book, int i){
 
-
-        LocalDate dueDate = LocalDate.now().plusDays(14);
-        String dateForDue = format.format(dueDate);
-        Period endBorrow = Period.between(now,dueDate);
 
         System.out.print("User: " + name +", ");
         System.out.print("Books: " +String.join(", ", borrowedBooks) + ", ");
-        System.out.println("Overdue by "+endBorrow+ " days");
+        //if else utk amek due date
+        if(book.getTitle() == null) {
 
-
+            System.out.println("Date borrowed: " + dateNow + ", " + "Date for overdue: " + dateForDue);
+            System.out.println("Overdue by " + endBorrow + " days");
+        }
+        else {
+            System.out.println("No due date");
+        }
 
     }
     }

@@ -29,15 +29,17 @@ public class Library {
             if (book.getTitle().equalsIgnoreCase(title)) {
                 if (book.GetIsAvailable()) {
                     book.setAvailable(false);
-                    System.out.println("Book '" + title + "' borrowed successfully.");
+                    System.out.println("Book '" + title + "' borrowed successfully by " + user.getName());
                 }
                 else {
-                    user.returnBook(title);
+                   user.returnBook(title);
                     System.out.println("Sorry, the book '" + title + "' is not available.");
                 }
                 return;
             }
         }
+
+
         System.out.println("Sorry, the book '" + title + "' is not available in the library.");
     }
 

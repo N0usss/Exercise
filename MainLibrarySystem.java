@@ -6,7 +6,7 @@ public class MainLibrarySystem {
     public static void main(String... arg){
 
         Book[] books = new Book[10];
-        User[] users = new User[2];
+        ArrayList<User> users = new ArrayList<>();
         Library Lib = new Library();
         Scanner scan = new Scanner(System.in);
         scan.useDelimiter("\\n");
@@ -21,53 +21,59 @@ public class MainLibrarySystem {
         }
 
 
+        System.out.println("----------ADMIN LIBRARY SYSTEM----------");
+        System.out.println("----------Customer Information----------\n");
+        System.out.println("Please insert customer information here---");
 
-        for (int s=0;s<2;s++){
+        for (int s=0;s<3;s++){
 
-            users[s] = new User();
+            User user = new User();
 
             System.out.print("Name: ");
-            users[s].setName(scan.next());
+            user.setName(scan.next());
             System.out.print("Age: ");
-            users[s].setAge(scan.nextInt());
+            user.setAge(scan.nextInt());
+
+            users.add(user);
 
 
         }
 
-       System.out.println("--Available books--");
+
+       System.out.println("----------Available books to borrow------\n");
         for(int a=0;a<titles.length;a++){
             books[a].printBookInfo();
 
         }
 
-        for(int b=0;b<2;b++){
+        for(int b=0;b<users.size();b++){
 
-            System.out.print("Books to borrow by " + users[b].getName() + ":");
+            System.out.print("\nBooks to borrow by " + users.get(b).getName() + ":");
             String bookToBorrow = scan.next();
 
-            users[b].borrowBook(bookToBorrow);
+            users.get(b).borrowBook(bookToBorrow);
 
-            Lib.borrowBook(users[b], bookToBorrow);
+            Lib.borrowBook(users.get(b), bookToBorrow);
 
         }
 
 
-        System.out.println("--Available books after borrow--");
+        System.out.println("----------Available books after borrow----------\n");
         for(int a=0;a<titles.length;a++){
             books[a].printBookInfo();
 
         }
 
 
-        System.out.println("--Books borrowed--");
+        System.out.println("\n----------Books borrowed----------\n");
 
         for(User user: users){
             user.printBorrowedBooks();
         }
 
-        System.out.println("--Overdue Books--");
-        for(User user: users){
-            user.checkDueDates();
+        System.out.println("\n----------Overdue Books----------\n");
+        for(int u=0;u<users.size();u++){
+            users.get(u).checkDueDates(books[u],u);
         }
 
 
