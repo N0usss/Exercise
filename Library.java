@@ -14,12 +14,18 @@ public class Library {
 
     public void searchByTitle(String title){
 
-        lib.contains("Harry Potter");
-        lib.contains("Maze Runner");
-        lib.contains("Wimpy Kids");
-        lib.contains("Hunger Games");
+        boolean searching = false;
 
-        System.out.println(lib);
+        for(int s=0;s<lib.size() && !searching;s++) {
+            if((title.equalsIgnoreCase(lib.get(s).getTitle()))){
+                System.out.println("The book is available in the library");
+            }
+            else {
+                System.out.println("No information about this book");
+            }
+            searching=true;
+
+        }
 
     }
 
@@ -32,7 +38,7 @@ public class Library {
                     System.out.println("Book '" + title + "' borrowed successfully by " + user.getName());
                 }
                 else {
-                   user.returnBook(title);
+                    user.removeBook(title);
                     System.out.println("Sorry, the book '" + title + "' is not available.");
                 }
                 return;
