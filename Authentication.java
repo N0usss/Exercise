@@ -6,6 +6,7 @@ public class Authentication {
     
     boolean isLoggedin = true;
     boolean hasPermission = false;
+    
 
     if(!isLoggedin && hasPermission){
 
